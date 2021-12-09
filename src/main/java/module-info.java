@@ -10,6 +10,5 @@
 open module com.sandpolis.core.integration.fuse {
 	exports com.sandpolis.core.integration.fuse;
 
-	requires com.sandpolis.core.foundation;
-	requires org.slf4j;
+	requires jdk.incubator.foreign;
 }

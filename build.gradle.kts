@@ -12,6 +12,7 @@ plugins {
 	id("java-library")
 	id("com.sandpolis.build.module")
 	id("com.sandpolis.build.publish")
+	id("com.sandpolis.build.jextract")
 }
 
 dependencies {
@@ -21,6 +22,12 @@ dependencies {
 	if (project.getParent() == null) {
 		implementation("com.sandpolis:core.foundation:+")
 	} else {
-		implementation(project(":module:com.sandpolis.core.foundation"))
+		implementation(project(":core:com.sandpolis.core.foundation"))
 	}
+}
+
+jextract {
+	invocations = mapOf(
+		"fuse3/fuse_lowlevel.h" to listOf("jextract", "--source", "-d", "src/gen/java", "-t", project.name, "-C", "-DFUSE_USE_VERSION=30")
+	)
 }
