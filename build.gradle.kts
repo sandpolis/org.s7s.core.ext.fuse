@@ -21,7 +21,7 @@ dependencies {
 	if (project.getParent() == null) {
 		implementation("org.s7s:core.foundation:+")
 	} else {
-		implementation(project(":core:org.s7s.core.foundation"))
+		implementation(project(":core:foundation"))
 	}
 }
 
